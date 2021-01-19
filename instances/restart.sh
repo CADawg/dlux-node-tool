@@ -9,8 +9,11 @@ for d in dlux*/ ; do
         v=${d%/}
         echo "Updating ${d}"
         cd $d
-        git pull # update from git
-	npm i # update packages
-        pm2 restart $v # restart node
+	update=`git pull`
+	if [ "$update" != "Already up to date." ]
+	then
+		npm i # update packages
+        	pm2 restart $v # restart node
+	fi
         cd ..
 done
