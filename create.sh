@@ -51,4 +51,6 @@ npm i
 
 pm2 start index.js --name "dlux-$username"
 
+pm2 save
+
 echo "Done! Your new node is setup and will be automatically updated every hour."
