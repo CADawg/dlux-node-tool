@@ -11,7 +11,7 @@ else
 
 	# Crontab setup for restart script
 	crontab -l > mycron
-	echo "*/5 * * * * $DIRX/instances/restart.sh  > /dev/null 2>&1" >> mycron
+	echo "0 0 * * * $DIRX/instances/restart.sh  > /dev/null 2>&1" >> mycron
 	crontab mycron
 	rm mycron
 
@@ -53,4 +53,4 @@ pm2 start index.js --name "dlux-$username"
 
 pm2 save
 
-echo "Done! Your new node is setup and will be automatically updated every hour."
+echo "Done! Your new node is setup and will be automatically updated every day."
